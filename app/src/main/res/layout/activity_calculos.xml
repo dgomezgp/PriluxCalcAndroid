@@ -4,14 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@mipmap/fondoazul"
     tools:context="com.grupoprilux.priluxcalc.Calculos">
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:background="@color/colorPrimary"
         android:onClick="botonCalcular"
         android:text="Calcular"
+        android:textColor="@android:color/holo_blue_light"
+        android:textSize="30sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent" />
 
     <LinearLayout
@@ -20,16 +24,14 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="36dp"
-            android:text="Calculos" />
-
-        <TextView
             android:id="@+id/textView2"
             android:layout_width="match_parent"
-            android:layout_height="31dp"
-            android:text="Alto" />
+            android:layout_height="wrap_content"
+            android:text="ALTURA:"
+            android:textAllCaps="false"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="30sp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/alturaEditText"
@@ -37,12 +39,17 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Altura"
-            android:inputType="numberDecimal"/>
+            android:inputType="numberDecimal"
+            android:textColor="@color/colorAccent"
+            android:textSize="24sp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="37dp"
-            android:text="Ancho" />
+            android:text="ANCHO:"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="30sp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/anchoEditText"
@@ -50,12 +57,17 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Ancho"
-            android:inputType="numberDecimal" />
+            android:inputType="numberDecimal"
+            android:textColor="@color/colorAccent"
+            android:textSize="24sp" />
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="32dp"
-            android:text="Largo" />
+            android:layout_height="wrap_content"
+            android:text="LARGO:"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="30sp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/largoEditText"
@@ -63,12 +75,17 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Largo"
-            android:inputType="numberDecimal"/>
+            android:inputType="numberDecimal"
+            android:textColor="@color/colorAccent"
+            android:textSize="24sp" />
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="32dp"
-            android:text="Distancia del Suelo" />
+            android:layout_height="wrap_content"
+            android:text="DISTANCIA DEL SUELO:"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="30sp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/distanciaSueloEditText"
@@ -76,12 +93,17 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Distancia del Suelo"
-            android:inputType="numberDecimal" />
+            android:inputType="numberDecimal"
+            android:textColor="@color/colorAccent"
+            android:textSize="24sp" />
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="33dp"
-            android:text="Calcular" />
+            android:layout_height="wrap_content"
+            android:text="LUMENES:"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="30sp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/lumenesEditText"
@@ -89,7 +111,10 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Lumenes"
-            android:inputType="numberDecimal" />
+            android:inputType="numberDecimal"
+            android:textColor="@color/colorAccent"
+            android:textColorHint="@color/colorPrimary"
+            android:textSize="24sp" />
 
     </LinearLayout>
 
