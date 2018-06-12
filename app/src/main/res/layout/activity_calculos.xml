@@ -9,7 +9,7 @@
 
     <Button
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="44dp"
         android:background="@color/colorPrimary"
         android:onClick="botonCalcular"
         android:text="Calcular"
@@ -80,6 +80,7 @@
             android:textSize="24sp" />
 
         <TextView
+            android:id="@+id/distanciaSueloTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="DISTANCIA DEL SUELO:"
@@ -98,6 +99,7 @@
             android:textSize="24sp" />
 
         <TextView
+            android:id="@+id/lumenesTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="LUMENES:"

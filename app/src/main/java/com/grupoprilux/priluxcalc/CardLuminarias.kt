@@ -22,6 +22,10 @@ class CardLuminarias : AppCompatActivity() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
+        var objeto1 = Luminaria("Bombilla", 20.0, 10.0)
+
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_card_luminarias)
         //setSupportActionBar(toolbar)

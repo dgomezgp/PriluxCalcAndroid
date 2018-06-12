@@ -36,6 +36,8 @@ class CardNormativa : AppCompatActivity() {
 
         collapsing_toolbar.setCollapsedTitleTextColor(Color.BLUE)
         collapsing_toolbar.title = "Normativas"
+
+
     }
 
 }

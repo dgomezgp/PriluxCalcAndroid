@@ -7,7 +7,20 @@
     android:background="@mipmap/fondoazul"
     tools:context="com.grupoprilux.priluxcalc.Resultado">
 
+    <Button
+        android:id="@+id/recalcularBoton"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@android:color/holo_red_light"
+        android:onClick="recalcular"
+        android:text="Recalcular"
+        android:textColor="?android:attr/textColorSecondaryInverse"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="368dp"
         android:layout_height="327dp"
         android:layout_marginBottom="8dp"
@@ -21,7 +34,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/luxesLabel"
             android:layout_width="match_parent"
             android:layout_height="54dp"
             android:text="LUXES:"
@@ -31,7 +44,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/luxesLabel"
+            android:id="@+id/resultadoLuxesLabel"
             android:layout_width="match_parent"
             android:layout_height="58dp"
             android:text="TextView"
@@ -48,6 +61,7 @@
             tools:text="Separador" />
 
         <TextView
+            android:id="@+id/numeroLuminariasLabel"
             android:layout_width="match_parent"
             android:layout_height="47dp"
             android:text="NUMERO DE LUMINARIAS:"
@@ -57,7 +71,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/numeroLuminariasLabel"
+            android:id="@+id/resultadoNumeroLuminariasLabel"
             android:layout_width="match_parent"
             android:layout_height="37dp"
             android:text="TextView"

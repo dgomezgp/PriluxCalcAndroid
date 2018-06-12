@@ -1,9 +1,13 @@
 package com.grupoprilux.priluxcalc
 
+import android.app.Application
+import android.content.Context
 import android.content.Intent
 import android.graphics.Color
+import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,8 +17,14 @@ import android.widget.TextView
 
 class RecyclerAdapterNormativa: RecyclerView.Adapter<RecyclerAdapterNormativa.VistaPepe2>() {
 
-    private val normativas = arrayOf("OFICINA", "ALMACEN", "SALON", "BIBLIOTECA", "CLASE", "COCINA"
-            , "BAÑO", "WTF")
+    private val normativas = arrayOf(Normativa("Calculo Libre",0.0 ,0.0),
+            Normativa("Oficina",500.0,0.0),
+            Normativa("Almacen",200.0,0.75),
+            Normativa("Despacho",300.0,1.0),
+            Normativa("Nave",400.0,1.0),
+            Normativa("Laboratorio",500.0,1.0),
+            Normativa("Garaje",200.0,1.0),
+            Normativa("Salon",300.0,0.75))
 
     private val subTitles = arrayOf("TEST 001", "TEST  002", "TEST  003", "TEST  004", "TEST  005", "TEST  006"
             , "TEST  007", "TEST  008")
@@ -35,9 +45,10 @@ class RecyclerAdapterNormativa: RecyclerView.Adapter<RecyclerAdapterNormativa.Vi
     }
 
     override fun onBindViewHolder(holder: VistaPepe2?, position: Int) {
-        holder!!.itemTitle.text = normativas[position]
-        holder!!.itemSubtitle.text = subTitles[position]
+        holder!!.itemTitle.text = normativas[position].nombre
+        holder!!.itemSubtitle.text = normativas[position].luxes.toString()
         //holder!!.itemImage.setImageResource(images[position])
+
 
     }
 
@@ -54,11 +65,21 @@ class RecyclerAdapterNormativa: RecyclerView.Adapter<RecyclerAdapterNormativa.Vi
             itemView.setOnClickListener {
                 var posicion: Int = adapterPosition
 
+
                 Snackbar.make(itemView, "Has seleccionado la celda $posicion", Snackbar.LENGTH_LONG).setAction("Accion", null).show()
                 var intent = Intent(itemView.context,Calculos::class.java)
+
+
+
+                intent.putExtra("NOMBRENORMATIVA",normativas[posicion].nombre)
+                intent.putExtra("LUXESNORMATIVA",normativas[posicion].luxes)
+                intent.putExtra("DISTANCIASUELONORMATIVA",normativas[posicion].distanciaSuelo)
+
                 itemView.context.startActivity(intent)
 
             }
+
+
             itemView.setBackgroundColor(Color.argb(100,143,143,143))
             itemImage = itemView.findViewById(R.id.item_image)
             itemTitle = itemView.findViewById(R.id.item_title)
