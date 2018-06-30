@@ -1,3 +1,5 @@
+
+
 package com.grupoprilux.priluxcalc
 
 
@@ -7,11 +9,20 @@ import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 
 import kotlinx.android.synthetic.main.activity_card_luminarias.*
 import kotlinx.android.synthetic.main.content_main_luminarias.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import java.util.*
+import kotlin.collections.ArrayList
+
 
 class CardLuminarias : AppCompatActivity() {
 
@@ -23,7 +34,7 @@ class CardLuminarias : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
-        var objeto1 = Luminaria("Bombilla", 20.0, 10.0)
+        //var objeto1 = Luminaria("Bombilla", 20.0, 10.0)
 
 
         super.onCreate(savedInstanceState)
@@ -45,3 +56,5 @@ class CardLuminarias : AppCompatActivity() {
     }
 
 }
+
+

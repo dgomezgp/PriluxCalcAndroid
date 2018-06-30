@@ -20,44 +20,41 @@ import android.widget.TextView
 class RecyclerAdapter: RecyclerView.Adapter<RecyclerAdapter.VistaPepe> ()  {
 
 
-    private val luminarias = arrayOf(Luminaria("Bura",10000.0,120.0),
-                                    Luminaria("Hexagon",12000.0,90.0),
-                                    Luminaria("Niza",4000.0,120.0),
-                                    Luminaria("Nigra",4000.0,120.0),
-                                    Luminaria("Roma",4000.0,120.0),
-                                    Luminaria("Berlin",4000.0,120.0),
-                                    Luminaria("Denver",4000.0,120.0),
-                                    Luminaria("Rio",4000.0,120.0))
-
-    private val subTitles = arrayOf("Subtítulo 001", "Subtítulo 002", "Subtítulo 003", "Subtítulo 004", "Subtítulo 005", "Subtítulo 006"
-            , "Subtítulo 007", "Subtítulo 008")
-
-    /*private val images = arrayOf(R.drawable.android_image_1
-            , R.drawable.android_image_2
-            , R.drawable.android_image_3
-            , R.drawable.android_image_4
-            , R.drawable.android_image_5
-            , R.drawable.android_image_6
-            , R.drawable.android_image_7
-            , R.drawable.android_image_8)
-    */
-
-
-
-
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): VistaPepe {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VistaPepe {
         val view = LayoutInflater.from(parent!!.context).inflate(R.layout.card_layout_luminarias, parent, false)
         return VistaPepe(view)
     }
 
-    override fun onBindViewHolder(holder: VistaPepe?, position: Int) {
+    override fun onBindViewHolder(holder: VistaPepe, position: Int) {
         holder!!.itemTitle.text = luminarias[position].nombre
         holder!!.itemSubtitle.text = luminarias[position].lumenes.toString()
         //holder!!.itemImage.setImageResource(images[position])
-
-
-
     }
+
+
+    private var luminarias = arrayOf(Luminaria("Bura",10000.0,120.0),
+            Luminaria("Hexagon",12000.0,90.0),
+            Luminaria("Niza",4000.0,120.0),
+            Luminaria("Nigra",4000.0,120.0),
+            Luminaria("Roma",4000.0,120.0),
+            Luminaria("Berlin",4000.0,120.0),
+            Luminaria("Denver",4000.0,120.0),
+            Luminaria("Rio",4000.0,120.0))
+
+    private val subTitles = arrayOf("Subtítulo 001", "Subtítulo 002", "Subtítulo 003", "Subtítulo 004", "Subtítulo 005", "Subtítulo 006"
+            , "Subtítulo 007", "Subtítulo 008")
+
+      private val images = arrayOf(R.drawable.android_image_1
+              , R.drawable.android_image_2
+              , R.drawable.android_image_3
+              , R.drawable.android_image_4
+              , R.drawable.android_image_5
+              , R.drawable.android_image_6
+              , R.drawable.android_image_7
+              , R.drawable.android_image_8)
+
+
+
 
     override fun getItemCount(): Int {
         return luminarias.count()
@@ -94,7 +91,5 @@ class RecyclerAdapter: RecyclerView.Adapter<RecyclerAdapter.VistaPepe> ()  {
             itemSubtitle = itemView.findViewById(R.id.item_detail)
         }
     }
-
-
 
 }

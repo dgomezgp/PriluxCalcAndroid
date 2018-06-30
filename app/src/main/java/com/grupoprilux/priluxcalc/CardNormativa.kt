@@ -1,6 +1,9 @@
+
+
 package com.grupoprilux.priluxcalc
 
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.support.design.widget.Snackbar
@@ -38,6 +41,34 @@ class CardNormativa : AppCompatActivity() {
         collapsing_toolbar.title = "Normativas"
 
 
+
+
+        val extras = intent.extras ?: return
+
+
+
+        // guardamos los valores recogidos en variables del tipo de datos a recibir utilizando su clave
+
+
+        var apertura = extras.getDouble("APERTURALUMINARIA")
+        var lumenes = extras.getDouble("LUMENESLUMINARIA")
+
+
+        var intent = Intent(this, RecyclerAdapterNormativa::class.java)
+
+
+        //Con esto mandamos informacion primitiva
+
+        intent.putExtra("LUMENESLUMINARIA",lumenes)
+        intent.putExtra("APERTURALUMINARIA",apertura)
+
+        //Esto envia la informacion siempre es lo ultimo que se hace
+        startActivity(intent)
+
+
+
     }
 
 }
+
+

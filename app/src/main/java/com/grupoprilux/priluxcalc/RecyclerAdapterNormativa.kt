@@ -1,3 +1,5 @@
+
+
 package com.grupoprilux.priluxcalc
 
 import android.app.Application
@@ -29,7 +31,7 @@ class RecyclerAdapterNormativa: RecyclerView.Adapter<RecyclerAdapterNormativa.Vi
     private val subTitles = arrayOf("TEST 001", "TEST  002", "TEST  003", "TEST  004", "TEST  005", "TEST  006"
             , "TEST  007", "TEST  008")
 
-    /*private val images = arrayOf(R.drawable.android_image_1
+    private val images = arrayOf(R.drawable.android_image_1
             , R.drawable.android_image_2
             , R.drawable.android_image_3
             , R.drawable.android_image_4
@@ -38,13 +40,13 @@ class RecyclerAdapterNormativa: RecyclerView.Adapter<RecyclerAdapterNormativa.Vi
             , R.drawable.android_image_7
             , R.drawable.android_image_8)
 
-    */
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): VistaPepe2 {
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VistaPepe2 {
         val view = LayoutInflater.from(parent!!.context).inflate(R.layout.card_layout_normativa, parent, false)
         return VistaPepe2(view)
     }
 
-    override fun onBindViewHolder(holder: VistaPepe2?, position: Int) {
+    override fun onBindViewHolder(holder: VistaPepe2, position: Int) {
         holder!!.itemTitle.text = normativas[position].nombre
         holder!!.itemSubtitle.text = normativas[position].luxes.toString()
         //holder!!.itemImage.setImageResource(images[position])
@@ -66,14 +68,29 @@ class RecyclerAdapterNormativa: RecyclerView.Adapter<RecyclerAdapterNormativa.Vi
                 var posicion: Int = adapterPosition
 
 
+
+
+
+                // guardamos los valores recogidos en variables del tipo de datos a recibir utilizando su clave
+
+
+
+
+
+
                 Snackbar.make(itemView, "Has seleccionado la celda $posicion", Snackbar.LENGTH_LONG).setAction("Accion", null).show()
                 var intent = Intent(itemView.context,Calculos::class.java)
 
+                val extras = intent.extras
 
+                var apertura = extras.getDouble("APERTURALUMINARIA")
+                var lumenes = extras.getDouble("LUMENESLUMINARIA")
 
                 intent.putExtra("NOMBRENORMATIVA",normativas[posicion].nombre)
                 intent.putExtra("LUXESNORMATIVA",normativas[posicion].luxes)
                 intent.putExtra("DISTANCIASUELONORMATIVA",normativas[posicion].distanciaSuelo)
+                intent.putExtra("LUMENESLUMINARIA",lumenes)
+                intent.putExtra("APERTURALUMINARIA",apertura)
 
                 itemView.context.startActivity(intent)
 
@@ -88,3 +105,4 @@ class RecyclerAdapterNormativa: RecyclerView.Adapter<RecyclerAdapterNormativa.Vi
     }
 
 }
+
