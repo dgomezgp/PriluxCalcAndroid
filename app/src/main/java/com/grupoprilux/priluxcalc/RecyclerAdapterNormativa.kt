@@ -2,6 +2,8 @@
 
 package com.grupoprilux.priluxcalc
 
+
+/*
 import android.app.Application
 import android.content.Context
 import android.content.Intent
@@ -106,3 +108,61 @@ class RecyclerAdapterNormativa: RecyclerView.Adapter<RecyclerAdapterNormativa.Vi
 
 }
 
+*/
+
+import android.widget.BaseAdapter
+import android.content.Context
+import android.content.Intent
+import android.support.constraint.R.id.parent
+import android.support.design.widget.Snackbar
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.TextView
+
+
+class RecyclerAdapterNormativa(val context: Context, val list: ArrayList<Normativa>): BaseAdapter() {
+
+    override fun getView(pos: Int, itemView: View?, p2: ViewGroup?): View {
+        val view: View = LayoutInflater.from(context).inflate(R.layout.card_layout_normativa, p2, false)
+        val priluxNombre = view.findViewById<TextView>(R.id.item_detail) //as TextView
+        val priluxCodigo = view.findViewById<TextView>(R.id.item_title)
+
+
+
+        view.setOnClickListener { v: View ->
+            var posicion: Int = pos
+            Snackbar.make(view, "Has seleccionado la celda $posicion", Snackbar.LENGTH_LONG).setAction("Accion", null).show()
+
+            var intent = Intent(v.context, Calculos::class.java)
+
+
+            //Con esto mandamos informacion primitiva
+            intent.putExtra("DISTANCIASUELONORMATIVA", list[posicion].nombre)
+            intent.putExtra("LUXESNORMATIVA", list[posicion].luxes)
+            intent.putExtra("APERTURALUMINARIA", list[posicion].altSuelo)
+
+            //Esto envia la informacion siempre es lo ultimo que se hace
+            view.context.startActivity(intent)
+        }
+
+
+        priluxNombre.text = list[pos].nombre.toString()
+        priluxCodigo.text = list[pos].luxes.toString()
+
+
+        return view
+    }
+
+    override fun getItem(p0: Int): Any {
+        return list[p0]
+    }
+
+    override fun getItemId(p0: Int): Long {
+        return p0.toLong()
+    }
+
+    override fun getCount(): Int {
+        return list.size
+    }
+}

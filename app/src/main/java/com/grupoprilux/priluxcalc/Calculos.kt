@@ -35,10 +35,11 @@ class Calculos : AppCompatActivity() {
 
 
         // guardamos los valores recogidos en variables del tipo de datos a recibir utilizando su clave
+        lumenes = extras.getDouble("LUMENESLUMINARIA")
         distanciaSuelo = extras.getDouble("DISTACIONSUELONORMATIVA")
         luxes = extras.getDouble("LUXESNORMATIVA")
         apertura = extras.getDouble("APERTURALUMINANCIA")
-        lumenes = extras.getDouble("LUMENESLUMINARIA")
+
         val nombreNormativa = extras.getString("NOMBRENORMATIVA")
 
         if (nombreNormativa != "Calculo Libre") {
