@@ -1,6 +1,6 @@
 
 
-package com.grupoprilux.priluxcalc
+package com.grupoprilux.priluxcalc.Normativas
 
 
 /*
@@ -113,12 +113,13 @@ class RecyclerAdapterNormativa: RecyclerView.Adapter<RecyclerAdapterNormativa.Vi
 import android.widget.BaseAdapter
 import android.content.Context
 import android.content.Intent
-import android.support.constraint.R.id.parent
 import android.support.design.widget.Snackbar
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import com.grupoprilux.priluxcalc.Calculo.Calculos
+import com.grupoprilux.priluxcalc.R
 
 
 class RecyclerAdapterNormativa(val context: Context, val list: ArrayList<Normativa>): BaseAdapter() {

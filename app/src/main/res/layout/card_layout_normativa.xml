@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:id="@+id/card_view"
     android:layout_margin="5dp"
-    card_view:cardBackgroundColor="#e0e4f2f2"
+    card_view:cardBackgroundColor="#8be4f2f2"
     android:background="@mipmap/fondoazul"
     card_view:cardCornerRadius="12dp"
     card_view:cardElevation="3dp"

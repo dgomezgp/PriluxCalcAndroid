@@ -8,14 +8,17 @@
     android:layout_margin="5dp"
     android:background="@mipmap/fondoazul"
     card_view:cardBackgroundColor="#8be4f2f2"
-    card_view:cardCornerRadius="12dp"
+    card_view:cardCornerRadius="20dp"
     card_view:cardElevation="3dp"
-    card_view:contentPadding="4dp" >
+    card_view:contentPadding="4dp"
+    android:padding="40dp"
+    >
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp" >
+        android:padding="16dp"
+        >
 
         <ImageView
             android:layout_width="100dp"

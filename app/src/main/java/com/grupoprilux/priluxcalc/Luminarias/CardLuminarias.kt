@@ -1,6 +1,6 @@
 
 
-package com.grupoprilux.priluxcalc
+package com.grupoprilux.priluxcalc.Luminarias
 
 /*
 import android.graphics.Color
@@ -103,10 +103,7 @@ class CardLuminarias : AppCompatActivity() {
 import android.os.AsyncTask
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.v7.widget.RecyclerView
-import android.util.Log
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
+import com.grupoprilux.priluxcalc.R
 import kotlinx.android.synthetic.main.activity_card_luminarias.*
 import org.json.JSONArray
 import java.net.HttpURLConnection
@@ -122,6 +119,9 @@ class CardLuminarias : AppCompatActivity() {
         val url = "http://www.grupoprilux.com/priluxcalc/test.php"
         AsyncTaskHandleJSON().execute(url)
     }
+
+
+
 
     inner class AsyncTaskHandleJSON: AsyncTask<String, String, String>() {
         override fun doInBackground(vararg url: String?): String {
@@ -170,6 +170,8 @@ class CardLuminarias : AppCompatActivity() {
         priluxCalcList.adapter = adapter
 
     }
+
+
 
 
 }

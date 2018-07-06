@@ -1,4 +1,4 @@
-package com.grupoprilux.priluxcalc
+package com.grupoprilux.priluxcalc.Calculo
 
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
@@ -7,8 +7,9 @@ import android.text.Editable
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import com.grupoprilux.priluxcalc.R
+import com.grupoprilux.priluxcalc.Resultados.Resultado
 import kotlinx.android.synthetic.main.activity_calculos.*
-import kotlinx.android.synthetic.main.activity_resultado.*
 import java.lang.Math.pow
 import kotlin.math.PI
 

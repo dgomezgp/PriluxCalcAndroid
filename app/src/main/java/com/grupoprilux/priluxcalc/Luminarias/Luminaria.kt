@@ -1,4 +1,4 @@
-package com.grupoprilux.priluxcalc
+package com.grupoprilux.priluxcalc.Luminarias
 
 import com.google.gson.annotations.SerializedName
 
