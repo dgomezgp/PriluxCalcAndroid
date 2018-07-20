@@ -6,7 +6,6 @@
     <item
         android:id="@+id/add_phrase"
         android:icon="@drawable/info"
-        android:iconTint="@color/colorPrimaryDark"
         android:title="Ayuda"
         app:showAsAction="always" />
 </menu>

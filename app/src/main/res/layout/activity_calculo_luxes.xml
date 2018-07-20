@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@mipmap/fondoazul"
-    tools:context="com.grupoprilux.priluxcalc.Calculos">
+    tools:context="com.grupoprilux.priluxcalc.CalculoLuxes">
 
     <Button
         android:layout_width="match_parent"
@@ -34,7 +34,7 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/alturaEditText"
+            android:id="@+id/alturaLuxesEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -52,7 +52,7 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/anchoEditText"
+            android:id="@+id/anchoLuxesEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -70,7 +70,7 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/largoEditText"
+            android:id="@+id/largoLuxesEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -89,7 +89,7 @@
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/distanciaSueloEditText"
+            android:id="@+id/distanciaSueloLuxesEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -99,20 +99,20 @@
             android:textSize="24sp" />
 
         <TextView
-            android:id="@+id/lumenesTextView"
+            android:id="@+id/puntosDeLuzTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="LUMENES:"
+            android:text="PUNTOS DE LUZ:"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="30sp"
             android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/lumenesEditText"
+            android:id="@+id/puntosDeLuzEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Lumenes"
+            android:hint="Puntos de Luz"
             android:inputType="numberDecimal"
             android:textColor="@color/colorAccent"
             android:textColorHint="@color/colorPrimary"
