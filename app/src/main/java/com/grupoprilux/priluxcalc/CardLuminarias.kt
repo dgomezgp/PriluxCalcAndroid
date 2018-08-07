@@ -13,12 +13,28 @@ import android.net.ConnectivityManager
 import android.widget.Toast
 import android.content.Intent
 import android.app.Activity
+import android.app.SearchManager
 import android.support.v7.app.AlertDialog
+import android.support.v7.widget.SearchView
+import android.support.v7.widget.Toolbar
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import android.widget.ArrayAdapter
+import android.widget.ListView
 
 
-class CardLuminarias : AppCompatActivity() {
+class CardLuminarias : AppCompatActivity(), SearchView.OnQueryTextListener {
+
+
+    ///SearchBar
+
+    var tbMainSearch: Toolbar? = null
+    var lvToolbarSerch: ListView? = null
+    var arrays = arrayOf<Luminaria>()
+    var adapter: ArrayAdapter<Luminaria>? = null
+    var listaCompleta: ArrayList<Luminaria>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,22 +47,45 @@ class CardLuminarias : AppCompatActivity() {
 
             val url = "http://www.grupoprilux.com/priluxcalc/test.php"
             AsyncTaskHandleJSON().execute(url)
+            setUpViews()
         }
+
+
+    }
+
+    fun setUpViews() {
+        tbMainSearch = findViewById(R.id.tb_toolbarsearch) as Toolbar
+        lvToolbarSerch = findViewById(R.id.priluxCalcList) as ListView
+        adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, arrays)
+        lvToolbarSerch!!.setAdapter(adapter)
+        setSupportActionBar(tbMainSearch)
+        val actionBar = getSupportActionBar()
+        actionBar!!.setDisplayHomeAsUpEnabled(true)
     }
 
 
-    //Infla el menu
+    //Infla el menu y searchbar
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main_menu, menu)
+        val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
+        val mSearchmenuItem = menu.findItem(R.id.menu_toolbarsearch)
+        val searchView = mSearchmenuItem.getActionView() as SearchView
+        searchView.setQueryHint("Buscar luminaria...")
+        searchView.setOnQueryTextListener(this)
+        Log.d("TAG", "onCreateOptionsMenu: mSearchmenuItem->" + mSearchmenuItem.getActionView());
         return true
     }
 
-    //Llama a la funcion de ayuda (showInfoAlert
+    //Llama a la funcion de ayuda (showInfoAlert)
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.getItemId()) {
             R.id.add_phrase -> {
                 showInfoAlert(this)
+                return true
+            }
+            R.id.search_button -> {
+                item.setVisible(false)
                 return true
             }
             else -> return super.onOptionsItemSelected(item)
@@ -151,8 +190,31 @@ class CardLuminarias : AppCompatActivity() {
         }
 
         val adapter = RecyclerAdapter(this, list)
+        listaCompleta = list
         priluxCalcList.adapter = adapter
 
+    }
+
+//Searchbar
+
+
+    override fun onQueryTextSubmit(query:String):Boolean {
+        Log.d("TAGBUSCADO", "onQueryTextSubmit: query->" + query)
+        return true
+    }
+    override fun onQueryTextChange(newText:String):Boolean {
+
+        var newText2 = newText.toUpperCase()
+        val newlist = ArrayList<Luminaria>()
+        for (name in this.listaCompleta!!) {
+            val getName = name.nombre.toUpperCase()
+            if (getName.contains(newText2)) {
+                newlist.add(name)
+            }
+        }
+        val adapter = RecyclerAdapter(this, newlist)
+        priluxCalcList.adapter = adapter
+        return true
     }
 
 

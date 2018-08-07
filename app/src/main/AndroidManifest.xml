@@ -22,17 +22,23 @@
             </intent-filter>
         </activity>
         <activity android:name=".CardNormativa"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"/>
         <activity android:name=".Calculos"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/SinSearch"/>
         <activity android:name=".Resultado"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/SinSearch"/>
         <activity android:name=".Eleccion"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/SinSearch"/>
         <activity android:name=".CalculoLuxes"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/SinSearch"/>
         <activity android:name=".ResultadoLuxes"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"
+            android:theme="@style/SinSearch"></activity>
     </application>
 
 </manifest>

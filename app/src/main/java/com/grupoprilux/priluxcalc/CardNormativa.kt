@@ -2,6 +2,7 @@ package com.grupoprilux.priluxcalc
 
 
 import android.app.Activity
+import android.app.SearchManager
 import android.content.Context
 import android.content.Intent
 import android.net.ConnectivityManager
@@ -9,9 +10,13 @@ import android.os.AsyncTask
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.app.AlertDialog
+import android.support.v7.widget.SearchView
+import android.support.v7.widget.Toolbar
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.ArrayAdapter
+import android.widget.ListView
 import android.widget.Toast
 
 import com.grupoprilux.priluxcalc.R
@@ -20,12 +25,20 @@ import org.json.JSONArray
 import java.net.HttpURLConnection
 import java.net.URL
 
-class CardNormativa : AppCompatActivity() {
+class CardNormativa : AppCompatActivity(), SearchView.OnQueryTextListener {
 
 
     var nombreLuminaria: String = ""
     var lumenes: String = ""
     var apertura: String = ""
+
+    ///SearchBar
+
+    var tbMainSearch: Toolbar? = null
+    var lvToolbarSerch: ListView? = null
+    var arrays = arrayOf<Normativa>()
+    var adapter: ArrayAdapter<Normativa>? = null
+    var listaCompleta: ArrayList<Normativa>? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,14 +61,32 @@ class CardNormativa : AppCompatActivity() {
             nombreLuminaria = extras.getString("NOMBRELUMINARIA")
             apertura = extras.getString("APERTURALUMINARIA")
 
+            setUpViews()
+
         }
 
     }
 
-    //Infla el menu
+    fun setUpViews() {
+        tbMainSearch = findViewById(R.id.tb_toolbarsearch) as Toolbar
+        lvToolbarSerch = findViewById(R.id.priluxCalcList) as ListView
+        adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, arrays)
+        lvToolbarSerch!!.setAdapter(adapter)
+        setSupportActionBar(tbMainSearch)
+        val actionBar = getSupportActionBar()
+        actionBar!!.setDisplayHomeAsUpEnabled(true)
+    }
+
+    //Infla el menu y searchbar
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main_menu, menu)
+        val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
+        val mSearchmenuItem = menu.findItem(R.id.menu_toolbarsearch)
+        val searchView = mSearchmenuItem.getActionView() as SearchView
+        searchView.setQueryHint("Buscar normativa...")
+        searchView.setOnQueryTextListener(this)
+        Log.d("TAG", "onCreateOptionsMenu: mSearchmenuItem->" + mSearchmenuItem.getActionView());
         return true
     }
 
@@ -165,11 +196,35 @@ class CardNormativa : AppCompatActivity() {
         }
 
         val adapter = RecyclerAdapterNormativa(this, list)
-
+        listaCompleta = list
         priluxCalcList.adapter = adapter
         adapter.enviarDatos(lumenes, nombreLuminaria, apertura)
 
 
+    }
+
+
+    //Searchbar
+
+
+    override fun onQueryTextSubmit(query:String):Boolean {
+        Log.d("TAGBUSCADO", "onQueryTextSubmit: query->" + query)
+        return true
+    }
+    override fun onQueryTextChange(newText:String):Boolean {
+
+        var newText2 = newText.toUpperCase()
+        val newlist = ArrayList<Normativa>()
+        for (name in this.listaCompleta!!) {
+            val getName = name.nombre.toUpperCase()
+            if (getName.contains(newText2)) {
+                newlist.add(name)
+
+            }
+        }
+        val adapter = RecyclerAdapterNormativa(this, newlist)
+        priluxCalcList.adapter = adapter
+        return true
     }
 
 }
