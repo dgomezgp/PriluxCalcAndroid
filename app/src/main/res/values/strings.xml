@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">PriluxCalc</string>
     <string name="action_settings">title</string>
+    <string name="ayuda">Ayuda</string>
+    <string name="buscar">Buscar</string>
 </resources>

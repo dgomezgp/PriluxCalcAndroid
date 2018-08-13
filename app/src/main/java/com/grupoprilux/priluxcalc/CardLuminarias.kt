@@ -36,6 +36,7 @@ class CardLuminarias : AppCompatActivity(), SearchView.OnQueryTextListener {
     var adapter: ArrayAdapter<Luminaria>? = null
     var listaCompleta: ArrayList<Luminaria>? = null
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_card_luminarias)
@@ -79,13 +80,19 @@ class CardLuminarias : AppCompatActivity(), SearchView.OnQueryTextListener {
 
     //Llama a la funcion de ayuda (showInfoAlert)
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        val test = item.getItemId()
         when (item.getItemId()) {
             R.id.add_phrase -> {
                 showInfoAlert(this)
                 return true
             }
-            R.id.search_button -> {
-                item.setVisible(false)
+            R.id.menu_toolbarsearch -> {
+                Log.i("TAG","SEARCH BAR PULSADO")
+                return true
+            }
+            R.id.tb_toolbarsearch -> {
+                Log.i("TAG","SEARCH BAR PULSADO")
                 return true
             }
             else -> return super.onOptionsItemSelected(item)
@@ -217,6 +224,10 @@ class CardLuminarias : AppCompatActivity(), SearchView.OnQueryTextListener {
         return true
     }
 
+    fun ocultarAyuda(view: View) {
+        Log.i("TAG","SEARCH BAR PULSADO")
+
+    }
 
 }
 

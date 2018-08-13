@@ -3,16 +3,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.learn2crack.recyclerviewsearch.MainActivity">
 
-    <item
-        android:id="@+id/menu_toolbarsearch"
-        app:showAsAction="always"
-        android:title="Buscar"
-        app:actionViewClass="android.support.v7.widget.SearchView"/>
+
 
     <item
         android:id="@+id/add_phrase"
         android:icon="@drawable/info"
         android:iconTint="@color/colorPrimaryDark"
         android:title="Ayuda"
-        app:showAsAction="always" />
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/menu_toolbarsearch"
+        app:showAsAction="always"
+        android:title="Buscar"
+        app:actionViewClass="android.support.v7.widget.SearchView"/>
 </menu>
